@@ -2,17 +2,14 @@
 <style>
   #filter {
     display: flex;
-    flex-wrap: wrap; /* Adjusted for better wrapping of items */
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center; /* Centers the filter items horizontally */
-    padding: 0.1rem;
   }
 
   .filter {
     text-align: center;
-    margin-top: 0.8rem;
     opacity: 0.7;
-    flex: 1 1 120px; /* Makes each filter take up equal space but not less than 120px */
+    flex: 1 1 calc(20% - 1rem); /* Ensures 4 items per row */
   }
 
   .filter:hover {
@@ -33,49 +30,37 @@
     border-radius: 1rem;
     height: 3.2rem;
     padding: 1rem;
+    margin-left: 5rem;
     display: flex;
     align-items: center;
-    margin-left: 1rem; /* Adjusted margin */
-    margin-top: 1rem; /* Added top margin for spacing */
   }
 
-  /* Media query for small screens (mobile devices) */
-  @media (max-width: 576px) {
-    #filter {
-      flex-direction: column; /* Stacks the filters vertically on small screens */
-      gap: 1rem;
-    }
-
-    .tax-togle {
-      margin-left: 0;
-      margin-top: 1rem; /* Adds margin for better spacing */
-    }
-
-    .filter p {
-      font-size: 0.9rem; /* Increases font size for readability */
-    }
-  }
-
-  /* Media query for medium screens (tablets) */
-  @media (max-width: 768px) {
-    #filter {
-      flex-direction: row;
-      gap: 1rem;
-    }
-
-    .filter p {
-      font-size: 0.9rem; /* Adjusts font size for better readability */
-    }
-
-    .tax-togle {
-      margin-left: 1rem; /* Adds some margin for alignment */
-    }
-  }
-
-  /* Media query for large screens (desktops) */
-  @media (min-width: 992px) {
+  /* Media Queries for responsiveness */
+  @media (max-width: 1200px) {
     .filter {
-      flex: 1 1 180px; /* Adjusts flex-basis to ensure items take up more space on large screens */
+      flex: 1 1 calc(33.33% - 2rem); /* 3 items per row */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .filter {
+      flex: 1 1 calc(50% - 2rem); /* 2 items per row */
+    }
+
+    .tax-togle {
+      margin-left: 2rem; /* Adjust for smaller screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .filter {
+      flex: 1 1 100%; /* 1 item per row */
+      text-align: center;
+    }
+
+    .tax-togle {
+      margin-left: 0; /* Full width for smaller screens */
+      margin-top: 1rem;
     }
   }
 </style>
@@ -90,7 +75,6 @@
     <div><i class="fa-solid fa-bed"></i></div>
     <p>Rooms</p>
   </div>
-
   <div class="filter">
     <div><i class="fa-solid fa-person-swimming"></i></div>
     <p>Pools</p>
@@ -98,9 +82,12 @@
 
   <div class="filter">
     <div><i class="fa-solid fa-mountain-city"></i></div>
-    <p>Mountain House</p>
+    <p>Mountain house</p>
   </div>
-
+  <div class="filter">
+    <div><i class="fa-solid fa-mountain-city"></i></div>
+    <p>Mountain house</p>
+  </div>
   <div class="filter">
     <div><i class="fa-solid fa-umbrella-beach"></i>
       <i class="fa-solid fa-water"></i>
@@ -153,3 +140,16 @@
   <% } %>
 </div>
 
+<script>
+  let taxSwith=document.getElementById("flexSwitchCheckDefault");
+  taxSwith.addEventListener("click",()=>{
+    let taxInfo=document.getElementsByClassName("tax-Info")
+for(info of taxInfo){
+  if(info.style.display!="inline"){
+    info.style.display="inline"
+  }else{
+  info.style.display="none";
+  }
+}
+  });
+</script>
