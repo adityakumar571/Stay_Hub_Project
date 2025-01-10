@@ -24,6 +24,7 @@ const LocalStrategy=require("passport-local");
 const User=require("./models/user.js")
  const multer=require('multer');
 const { error } = require('console');
+const user = require('./models/user.js');
  const upload=multer({dest:'uploads/'})
 
 
@@ -95,9 +96,15 @@ app.use((req,res,next)=>{
 })
 
 
+
+app.get('/',(req,res)=>{
+res.render("home/home.ejs")
+})
 app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
 app.use("/",userRouter);
+
+
 
  
 app.all("*",(req,res,next)=>{
@@ -109,8 +116,11 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("listings/error.ejs",{message});
   //res.status(statusCode).send(message);
 });
-
-const PORT = 8080; // Corrected port variable name
-app.listen(PORT, () => {
-  console.log("Server is working on port " + PORT); // Corrected console log message
+const port = 8080;
+ // Corrected port variable name
+ app.listen(port, () => {
+  console.log(`Server is working on port ${port}`);
+}).on('error', (err) => {
+  console.error('Error occurred:', err.message);
 });
+

@@ -1,0 +1,152 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+  /* General Styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+
+  #home-header {
+    text-align: center;
+    margin: 3rem 0;
+    color: #333;
+  }
+
+  #home-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #fe424d;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  #home-header p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+
+  #home-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 1200px;
+  }
+
+  .category-card {
+    width: 14rem;
+    height: 14rem;
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .category-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #fe424d, #6c757d);
+    color: white;
+  }
+
+  .category-card i {
+    font-size: 3rem;
+    color: #fe424d;
+    margin-bottom: 0.8rem;
+    transition: color 0.4s;
+  }
+
+  .category-card:hover i {
+    color: white;
+  }
+
+  .category-card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .category-card {
+      width: 10rem;
+      height: 10rem;
+    }
+
+    .category-card p {
+      font-size: 1rem;
+    }
+
+    .category-card i {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<div id="home-header">
+  <h1>Welcome to StayHub</h1>
+  <p>Find your perfect stay from a variety of amazing options.</p>
+</div>
+
+<div id="home-categories">
+  <div class="category-card">
+    <i class="fa-solid fa-fire"></i>
+    <p>Trending</p>
+  </div>
+  <div class="category-card">
+    <i class="fa-solid fa-bed"></i>
+    <p>Rooms</p>
+  </div>
+  <div class="category-card">
+    <i class="fa-solid fa-person-swimming"></i>
+    <p>Pools</p>
+  </div>
+  <div class="category-card">
+    <i class="fa-solid fa-mountain-city"></i>
+    <p>Mountain Houses</p>
+  </div>
+  <div class="category-card">
+    <i class="fa-solid fa-umbrella-beach"></i>
+    <p>Beaches</p>
+  </div>
+  <div class="category-card">
+    <i class="fa-solid fa-gopuram"></i>
+    <p>Temples</p>
+  </div>
+  <div class="category-card">
+    <i class="fa-brands fa-fort-awesome"></i>
+    <p>Castles</p>
+  </div>
+</div>
+
+<script>
+  const categories = document.querySelectorAll(".category-card");
+  categories.forEach((category) => {
+    category.addEventListener("click", () => {
+      const categoryName = category.querySelector("p").textContent;
+      alert(`Navigating to ${categoryName} listings...`);
+      // Replace the following line with actual navigation logic
+      // Example: window.location.href = `/listings?category=${categoryName.toLowerCase()}`;
+    });
+  });
+</script>
