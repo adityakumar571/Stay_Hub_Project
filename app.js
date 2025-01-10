@@ -2,7 +2,6 @@ if(process.env.NODE_ENV !="production"){
   require('dotenv').config();
 }
 
-console.log(process.env.secret)
 const mongoose = require("mongoose");
 const MongoStore=require("connect-mongo")
 
@@ -46,9 +45,10 @@ async function main() {
   await mongoose.connect(MONGO_URL); // Removed quotes around MONGO_URL variable
 }
 
+
+//build in middleware
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", EjsMate);
@@ -77,9 +77,6 @@ const sessionOptions={
     httpOnly:true,
   },
 };
-app.get("/", (req, res) => {
-  res.render("index"); // Corrected response message
-});
 
 app.use(session(sessionOptions));
 app.use(flash());
