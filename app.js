@@ -77,6 +77,10 @@ const sessionOptions={
     httpOnly:true,
   },
 };
+app.get("/", (req, res) => {
+  res.send("i am root"); // Corrected response message
+});
+
 app.use(session(sessionOptions));
 app.use(flash());
 app.use(passport.initialize());
@@ -94,8 +98,8 @@ app.use((req,res,next)=>{
 })
 
 
-app.use("/",listings);
-app.use("/:id/reviews",reviews);
+app.use("/listings",listings);
+app.use("/listings/:id/reviews",reviews);
 app.use("/",userRouter);
 
  
