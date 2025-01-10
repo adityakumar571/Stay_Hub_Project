@@ -87,10 +87,18 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    #home-header h1 {
+      font-size: 2rem;
+    }
+
+    #home-header p {
+      font-size: 1rem;
+    }
+
     .category-card {
-      width: 10rem;
-      height: 10rem;
+      width: 12rem;
+      height: 12rem;
     }
 
     .category-card p {
@@ -99,6 +107,62 @@
 
     .category-card i {
       font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #home-header h1 {
+      font-size: 1.8rem;
+    }
+
+    #home-header p {
+      font-size: 1rem;
+    }
+
+    .category-card {
+      width: 10rem;
+      height: 10rem;
+      margin: 1rem;
+    }
+
+    .category-card p {
+      font-size: 0.9rem;
+    }
+
+    .category-card i {
+      font-size: 2rem;
+    }
+
+    #home-categories {
+      justify-content: space-around;
+    }
+  }
+
+  @media (max-width: 576px) {
+    #home-header h1 {
+      font-size: 1.5rem;
+    }
+
+    #home-header p {
+      font-size: 0.9rem;
+    }
+
+    .category-card {
+      width: 9rem;
+      height: 9rem;
+      margin: 0.8rem;
+    }
+
+    .category-card p {
+      font-size: 0.8rem;
+    }
+
+    .category-card i {
+      font-size: 1.8rem;
+    }
+
+    #home-categories {
+      justify-content: center;
     }
   }
 </style>
@@ -144,9 +208,7 @@
   categories.forEach((category) => {
     category.addEventListener("click", () => {
       const categoryName = category.querySelector("p").textContent;
-      alert(`Navigating to ${categoryName} listings...`);
-      // Replace the following line with actual navigation logic
-      // Example: window.location.href = `/listings?category=${categoryName.toLowerCase()}`;
+      alert(`Navigating to ${categoryName} listings...`); 
     });
   });
 </script>
