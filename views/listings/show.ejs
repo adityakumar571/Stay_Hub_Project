@@ -9,14 +9,15 @@
         </div>
         <div class="card col-6 offset-3 show-card mt-1">
             <img src="<%=listing.image.url%>" class="card-img-top show-image mt-1" alt="listing_image">
-            <div class="card mt-1">
-                <p class="card-text">
-                   owened by: <i><%=listing.owner.username%></i></p>
-               <p><%= listing.description %></p>  </b>
-                    <p><%= listing.location %></p>
-                         </br>
-                           <p> <%= listing.country %> </br>
-                                </p>
+            <div class=" mt-1">
+                <p>
+                   owened by: <%=listing.owner.username%></p>
+
+                   <span><h5>Location: </h5>
+                    <p><%= listing.description %></p>  
+                    <p"><%= listing.location %></p>
+                    <p > <%= listing.country %></p></span>
+
             </div>
             <%if(currUser && currUser._id.equals(listing.owner._id)){%>
             <div class="btns mt-3 offset-3">
