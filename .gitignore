@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+/clientSide/node_modules
+/serverSide/node_modules
+
+# Build output
+build/
+dist/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+.codegpt
